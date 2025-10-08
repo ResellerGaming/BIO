@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cara Membuat Personal Access Token GitHub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f7f9fc;
+      color: #1c1e21;
+      line-height: 1.7;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 850px;
+      background: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      margin: auto;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #0070f3;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: #0a66c2;
+      margin-top: 40px;
+    }
+    a {
+      color: #0070f3;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .link-box {
+      background: #eef6ff;
+      border-left: 5px solid #0070f3;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin: 15px 0;
+    }
+    .btns { display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { padding:10px 14px; border-radius:10px; background:#0070f3; color:white; text-decoration:none; font-weight:500; box-shadow:0 6px 14px rgba(2,72,255,0.12); }
+    .btn.secondary { background:#0a66c2 }
+    ol, ul { margin-left: 20px; }
+    code {
+      background: #f3f4f6;
+      padding: 3px 7px;
+      border-radius: 5px;
+      font-family: monospace;
+      color: #c7254e;
+    }
+    .note {
+      background: #fff3cd;
+      color: #856404;
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-top: 20px;
+      border: 1px solid #ffeeba;
+    }
+    footer { text-align:center; color:#666; margin-top:30px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔑 Cara Membuat Personal Access Token di GitHub</h1><p>
+  Token GitHub digunakan untuk mengautentikasi akun kamu saat mengakses API, melakukan <em>push/pull</em> lewat Git, atau menghubungkan ke layanan lain tanpa harus pakai password.
+  Berikut langkah-langkah lengkapnya 👇
+</p>
+
+<h2>1️⃣ Masuk ke Pengaturan GitHub</h2>
+<ol>
+  <li>Buka GitHub dan <strong>login</strong> ke akun kamu.</li>
+  <li>Klik <strong>foto profil (pojok kanan atas)</strong> → pilih <strong>Settings</strong>.</li>
+  <li>Scroll ke bawah sidebar kiri dan pilih <strong>Developer settings</strong>.</li>
+  <li>Kemudian pilih <strong>Personal access tokens</strong>.</li>
+</ol>
+
+<h2>2️⃣ Pilih Jenis Token</h2>
+<ul>
+  <li>
+    <strong>Fine-grained Token (disarankan):</strong> lebih aman dan bisa pilih repo spesifik.
+    <div class="link-box">
+      🔗 <a href="https://github.com/settings/personal-access-tokens/new" target="_blank">
+      Buat Fine-grained Token</a>
+    </div>
+  </li>
+  <li>
+    <strong>Classic Token:</strong> versi lama tapi masih kompatibel dengan tool lama.
+    <div class="link-box">
+      ⚙️ <a href="https://github.com/settings/tokens/new" target="_blank">
+      Buat Classic Token</a>
+    </div>
+  </li>
+</ul>
+
+<h2>🔗 Cara cepat — buka langsung link pembuatan token</h2>
+<p>Jika kamu ingin langsung menuju halaman pembuatan token, klik salah satu link cepat di bawah ini. Setelah terbuka, ikuti langkah pilih permission & klik <strong>Generate</strong>:</p>
+<div class="btns">
+  <a class="btn" href="https://github.com/settings/personal-access-tokens/new" target="_blank">Buat Fine-grained Token</a>
+  <a class="btn secondary" href="https://github.com/settings/tokens/new" target="_blank">Buat Classic Token</a>
+  <a class="btn" href="https://github.com/settings/personal-access-tokens" target="_blank">Kelola Fine-grained Tokens</a>
+  <a class="btn secondary" href="https://github.com/settings/tokens" target="_blank">Kelola Classic Tokens</a>
+</div>
+
+<div class="note">
+  ⚠️ Catatan penting: GitHub tidak mengizinkan pengisian scope/permission token lewat URL publik (untuk keamanan). Jadi link yang tersedia akan mengarahkan kamu ke form pembuatan — kamu masih perlu memilih nama, masa berlaku, dan permission sebelum menekan <strong>Generate</strong>.
+</div>
+
+<h2>3️⃣ Isi Detail Token</h2>
+<ol>
+  <li>Masukkan nama token di kolom <strong>Note</strong> (misalnya: <em>Deploy Token</em>).</li>
+  <li>Tentukan <strong>Expiration</strong> (masa berlaku) sesuai kebutuhan.</li>
+  <li>Pilih <strong>Repository</strong> atau <strong>Organization</strong> yang diizinkan.</li>
+  <li>Centang <strong>scopes/permissions</strong> sesuai kebutuhan:
+    <ul>
+      <li><code>repo</code> → untuk akses ke repository.</li>
+      <li><code>workflow</code> → jika ingin jalankan GitHub Actions.</li>
+      <li><code>read:user</code> → untuk baca profil user.</li>
+    </ul>
+  </li>
+  <li>Klik tombol <strong>Generate token</strong>.</li>
+</ol>
+
+<div class="note">
+  ⚠️ <strong>Penting:</strong> Token hanya muncul sekali! Segera salin dan simpan di tempat aman (password manager atau GitHub Secret).
+</div>
+
+<h2>4️⃣ Gunakan Token</h2>
+<ul>
+  <li>
+    <strong>Git Clone (langsung):</strong><br>
+    <code>git clone https://USERNAME:TOKEN@github.com/OWNER/REPO.git</code>
+  </li>
+  <li>
+    <strong>Credential Helper (lebih aman):</strong><br>
+    <code>git config --global credential.helper store</code><br>
+    Saat push pertama kali, masukkan username dan token sebagai password.
+  </li>
+  <li>
+    <strong>API via cURL:</strong><br>
+    <code>curl -H "Authorization: token TOKEN_KAMU" https://api.github.com/user</code>
+  </li>
+</ul>
+
+<h2>5️⃣ Kelola Token</h2>
+<p>Lihat atau hapus token lama di sini:</p>
+<ul>
+  <li>Fine-grained tokens → <a href="https://github.com/settings/personal-access-tokens" target="_blank">Kelola di sini</a></li>
+  <li>Classic tokens → <a href="https://github.com/settings/tokens" target="_blank">Kelola di sini</a></li>
+</ul>
+
+<div class="note">
+  🔐 <strong>Tips Keamanan:</strong>
+  <ul>
+    <li>Jangan pernah commit token ke repository.</li>
+    <li>Gunakan expiration singkat (mis. 30 hari).</li>
+    <li>Segera revoke jika token bocor.</li>
+  </ul>
+</div>
+
+<footer>
+  — Dibuat dengan ♥️ by ResellerGaming —
+</footer>
+
+  </div>
+</body>
+  </html>
